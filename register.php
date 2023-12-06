@@ -8,29 +8,41 @@ include 'template/header.php';
       <br/>
 <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Last Name</label>
+    <label for="lastname">Last Name</label>
     <input type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp" placeholder="Enter last name">
     <small id="lastnameHelp" class="form-text text-muted">We'll keep your information confidential.</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">First Name</label>
+    <label for="firstname">First Name</label>
     <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" placeholder="Enter first name">
     <small id="firstnameHelp" class="form-text text-muted">We'll keep your information confidential.</small>
   </div>
     <div class="form-group">
-    <label for="exampleInputEmail1">Middle Name</label>
-    <input type="text" class="form-control" id="lastname" aria-describedby="midnameHelp" placeholder="Enter middle name">
+    <label for="midname">Middle Name</label>
+    <input type="text" class="form-control" id="midname" aria-describedby="midnameHelp" placeholder="Enter middle name">
     <small id="midnameHelp" class="form-text text-muted">We'll keep your information confidential.</small>
   </div>  
 	<div class="form-group">
-    <label for="exampleInputEmail1">Name Extension</label>
+    <label for="extname">Name Extension</label>
     <input type="text" class="form-control" id="extname" aria-describedby="extnameHelp" placeholder="Enter name extension">
     <small id="extnameHelp" class="form-text text-muted">We'll keep your information confidential.</small>
   </div>  
 	<div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Birth Date</label>
-        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+        <label class="control-label" for="birthdate">Birth Date</label>
+        <input class="form-control" id="birthdate" name="date" placeholder="Your birthdate in DD/MM/YYYY" type="text"/>
       </div>
+	<div class="form-group">
+    <label for="exampleInputEmail1">Landline</label>
+    <input type="text" class="form-control" id="extname" aria-describedby="landlineHelp" placeholder="Enter landline number">
+    <small id="landlineHelp" class="form-text text-muted">We'll keep your information confidential.</small>
+  </div>  
+	<div class="form-group">
+    <label for="exampleInputEmail1">Mobile number</label>
+    <input type="text" class="form-control" id="extname" aria-describedby="extnameHelp" placeholder="Enter mobile number">
+    <small id="extnameHelp" class="form-text text-muted">We'll keep your information confidential.</small>
+  </div>  
+      
+      
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
