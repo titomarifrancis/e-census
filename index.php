@@ -1,6 +1,6 @@
 <?php
-include 'templates/header.php';
+include 'template/header.php';
 ?>
 This is a test
 <?php
-include 'templates/footer.php';
+include 'template/footer.php';
