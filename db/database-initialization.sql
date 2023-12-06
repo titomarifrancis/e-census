@@ -1,4 +1,4 @@
-create table [if not exists] userlevels (
+create table userlevels (
 	id serial primary key,
 	userlevel integer unique check (userlevel < 4),
 	leveldesc varchar(64) not null,
@@ -7,7 +7,7 @@ create table [if not exists] userlevels (
 
 create index idx_userlevel on userlevels(id, userlevel);
 
-create table [if not exists] regions (
+create table regions (
 	id serial primary key,
 	regionname varchar(64) not null,
 	creationdate timestamptz not null	
@@ -15,7 +15,7 @@ create table [if not exists] regions (
 
 create index idx_region on regions(id, regionname);
 
-create table [if not exists] provinces (
+create table provinces (
 	id serial primary key,
 	provincename varchar(64) not null,
 	regionid integer references regions(id) on delete restrict,
@@ -24,7 +24,7 @@ create table [if not exists] provinces (
 
 create index idx_province on provinces(id, provincename);
 
-create table [if not exists] citymunicipality (
+create table citymunicipality (
 	id serial primary key,
 	towncitymunicipalityname varchar(64) not null,
 	iscity boolean default false not null,
@@ -34,7 +34,7 @@ create table [if not exists] citymunicipality (
 
 create index idx_citymunicipality on citymunicipality(id, towncitymunicipalityname);
 
-create table [if not exists] barangays (
+create table barangays (
 	id serial primary key,
 	barangayname varchar(64) not null,
 	citymunicipalityid integer references citymunicipality(id) on delete restrict,
@@ -43,7 +43,7 @@ create table [if not exists] barangays (
 
 create index idx_barangay on barangays(id, barangayname);
 
-create table [if not exists] genders (
+create table genders (
 	id serial primary key,
 	genderdesc varchar(64) not null,
 	creationdate timestamptz not null
@@ -51,16 +51,16 @@ create table [if not exists] genders (
 
 create index idx_gender on genders(id,genderdesc);
 
-create table [if not exists] civstatus (
+create table civstatus (
   id serial primary key,
   civstatusdesc varchar(32) not null
 );
 
-create table [if not exists] users (
+create table users (
 	id serial primary key,
 	lastname varchar(64) not null,
 	firstname varchar(64) not null,
-	midname varchar(64) default null,
+	midname varchar(5) default null,
 	extname varchar(5) default null,
 	birthdate date default null,
 	contactlandline varchar(8) default null,
@@ -71,7 +71,7 @@ create table [if not exists] users (
 	usrname varchar(128) unique not null,
 	usrpassword varchar(128) not null,
 	usrpasswdsalt varchar(128) not null,
-	userlevelid integer default 1 references userlevels(userlevel) on delete restrict check(userlevelid < 4),
+	userlevelid integer default 1 references userlevels(userlevel) on delete restrict check(userlevelid < 5),
 	isapproved boolean default false,
 	approvedby integer default null references users(id) on delete restrict,
 	approveddate timestamptz default null,
@@ -81,7 +81,7 @@ create table [if not exists] users (
 
 create index idx_user on users(id, lastname, firstname, midname, extname, usrname, usrpassword);
 
-create table [if not exists] useraddress (
+create table useraddress (
 	id serial primary key,
 	userId integer not null references users(id) on delete restrict,
 	provinceid integer default null references provinces(id) on delete restrict,
