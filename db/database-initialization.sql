@@ -60,7 +60,7 @@ create table [if not exists] users (
 	id serial primary key,
 	lastname varchar(64) not null,
 	firstname varchar(64) not null,
-	midname varchar(5) default null,
+	midname varchar(64) default null,
 	extname varchar(5) default null,
 	birthdate date default null,
 	contactlandline varchar(8) default null,
