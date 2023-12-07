@@ -33,10 +33,24 @@ include 'dbconn.php'
         <label class="control-label" for="birthdate">Birth Date</label>
         <input class="form-control" id="birthdate" name="date" placeholder="Your birthdate in DD/MM/YYYY" type="text"/>
       </div>
+<?php
+	$getGenderQuery = 'select id, genderdesc from genders order by genderdesc asc';
+	$genderStmt= $dbh->query($getGenderQuery);
+?>
 	<div class="form-group"> <!-- Date input -->
         <label class="control-label" for="gender">Gender</label>
-        <input class="form-control" id="gender" name="gender" placeholder="Your gender (i.e. Male, Female, LGBTQ+)" type="text"/>
-      </div>
+        <select name="govtagencyid" id="govtagencyField" class="form-control">
+        	<option value="0" selected>Please select one</option>
+	<?php
+	foreach($genderStmt as $row)
+	{
+	?>
+	            <option value="<?php echo $row['id'];?>"><?php echo rtrim($row['genderdesc']);?></option>
+	<?php	
+	}
+	?>
+        </select>
+    </div>
 	<div class="form-group"> <!-- Date input -->
         <label class="control-label" for="civstatus">Civil Status</label>
         <input class="form-control" id="civstatus" name="civstatus" type="text"/>

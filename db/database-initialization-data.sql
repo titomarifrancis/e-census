@@ -21,12 +21,12 @@ insert into regions(regionname, creationdate) values('Region 13 - CARAGA Adminis
 insert into regions(regionname, creationdate) values('Cordillera Administrative Region', NOW());
 insert into regions(regionname, creationdate) values('Autonomous Region in Muslim Mindanao', NOW());
 
-insert into genders(genderdesc) values("Male");
-insert into genders(genderdesc) values("Female");
-insert into genders(genderdesc) values("LGBTQ+");
+insert into genders(genderdesc, creationdate) values('Male', NOW());
+insert into genders(genderdesc, creationdate) values('Female', NOW());
+insert into genders(genderdesc, creationdate) values('LGBTQ+', NOW());
 
-insert into civstatus(civstatusdesc) values("Single");
-insert into civstatus(civstatusdesc) values("Married");
-insert into civstatus(civstatusdesc) values("Separated");
-insert into civstatus(civstatusdesc) values("Widower");
+insert into civstatus(civstatusdesc, creationdate) values('Single', NOW());
+insert into civstatus(civstatusdesc, creationdate) values('Married', NOW());
+insert into civstatus(civstatusdesc, creationdate) values('Separated', NOW());
+insert into civstatus(civstatusdesc, creationdate) values('Widower', NOW());
 

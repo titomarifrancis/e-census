@@ -1,6 +1,6 @@
 create table userlevels (
 	id serial primary key,
-	userlevel integer unique check (userlevel < 4),
+	userlevel integer unique check (userlevel < 5),
 	leveldesc varchar(64) not null,
 	creationdate timestamptz not null
 );
@@ -53,7 +53,8 @@ create index idx_gender on genders(id,genderdesc);
 
 create table civstatus (
   id serial primary key,
-  civstatusdesc varchar(32) not null
+  civstatusdesc varchar(32) not null,
+  creationdate timestamptz not null
 );
 
 create table users (
