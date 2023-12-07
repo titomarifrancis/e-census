@@ -37,9 +37,9 @@ include 'dbconn.php'
 	$getGenderQuery = 'select id, genderdesc from genders order by genderdesc asc';
 	$genderStmt= $dbh->query($getGenderQuery);
 ?>
-	<div class="form-group"> <!-- Date input -->
+	<div class="form-group">
         <label class="control-label" for="gender">Gender</label>
-        <select name="govtagencyid" id="govtagencyField" class="form-control">
+        <select name="genderId" id="genderId" class="form-control">
         	<option value="0" selected>Please select one</option>
 	<?php
 	foreach($genderStmt as $row)
@@ -51,10 +51,26 @@ include 'dbconn.php'
 	?>
         </select>
     </div>
-	<div class="form-group"> <!-- Date input -->
+    
+<?php
+	$getCivStatusuery = 'select id, civstatusdesc from civstatus order by civstatusdesc asc';
+	$civstatStmt= $dbh->query($getCivStatusuery);
+?>
+	<div class="form-group">
         <label class="control-label" for="civstatus">Civil Status</label>
-        <input class="form-control" id="civstatus" name="civstatus" type="text"/>
+		<select name="genderId" id="genderId" class="form-control">
+        	<option value="0" selected>Please select one</option>
+	<?php
+	foreach($civstatStmt as $row)
+	{
+	?>
+	            <option value="<?php echo $row['id'];?>"><?php echo rtrim($row['civstatusdesc']);?></option>
+	<?php	
+	}
+	?>
+        </select>
       </div>
+      
 	<div class="form-group">
     <label for="landline">Landline</label>
     <input type="text" class="form-control" id="extname" aria-describedby="landlineHelp" placeholder="Enter landline number" maxlength="8"">
